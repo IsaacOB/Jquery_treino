@@ -6,9 +6,7 @@ var campoDigitacao = $(".campoDigitacao");
 
 campoDigitacao.on("input", contaCaracteresEPalavras);
 
-
 campoDigitacao.one("focus", comecaAReduzirContador);
-
 
 function contaCaracteresEPalavras(){
 
@@ -38,4 +36,17 @@ function comecaAReduzirContador(){
         }
 
     }, 1000);
+}
+
+$("#btReiniciar").click(btReiniciarJogo);
+
+function btReiniciarJogo(){
+
+    var campoDigitacao = $(".campoDigitacao");
+    campoDigitacao.attr("disabled", false);
+    campoDigitacao.val("");
+    
+    $("#contadorPalavras").text("0");
+    $("#contadorCaracteres").text("0");
+
 }
