@@ -24,11 +24,17 @@ function contaCaracteresEPalavras(){
 
 function comecaAReduzirContador(){
 
+    var campoDigitacao = $(".campoDigitacao");
+
     var tempoRestante = $("#tempoDigitacao").text();
     setInterval(function(){
 
         tempoRestante--;
         $("#tempoDigitacao").text(tempoRestante);
+
+        if(tempoRestante < 1){
+            campoDigitacao.attr("disabled", true);
+        }
 
     }, 1000);
 }
