@@ -7,7 +7,7 @@ var campoDigitacao = $(".campoDigitacao");
 campoDigitacao.on("input", contaCaracteresEPalavras);
 
 
-campoDigitacao.on("focus", comecaAReduzirContador);
+campoDigitacao.one("focus", comecaAReduzirContador);
 
 
 function contaCaracteresEPalavras(){
