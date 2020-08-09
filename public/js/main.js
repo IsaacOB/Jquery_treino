@@ -1,17 +1,19 @@
 var tempoInicial = $("#tempoDigitacao").text();
 var campoDigitacao = $(".campoDigitacao");
+var frase = $(".frase").text();
 
 $(document).ready(function(){
     tamanhoFrase();
     contaCaracteresEPalavras();
     comecaAReduzirContador();
+    correcaoComUsoDasBordas();
     btReiniciarJogo();
 })
 
 function tamanhoFrase(){
     var frase = $(".frase").text();
     var numeroDePalavras = frase.split(" ").length;
-    var tamanhoDaFrase = $("#tamanhoDaFrase").text(numeroDePalavras);
+    $("#tamanhoDaFrase").text(numeroDePalavras);
 
 }
 
@@ -38,12 +40,31 @@ function comecaAReduzirContador(){
             $("#tempoDigitacao").text(tempoRestante);
 
             if(tempoRestante < 1){
+
                 campoDigitacao.attr("disabled", true);
                 clearInterval(tempoID);
+                campoDigitacao.addClass("campoDigitacaoDesabilitado");
+
             }
 
         }, 1000);
     });
+}
+
+function correcaoComUsoDasBordas(){
+
+        campoDigitacao.on("input", function(){
+        var conteudoDigitado = campoDigitacao.val();
+        var comparador = frase.substr(0, conteudoDigitado.length);
+
+        if(conteudoDigitado == comparador){
+            campoDigitacao.addClass("campoDigitacaoCorreto");
+            campoDigitacao.removeClass("campoDigitacaoErrado");
+        }else{
+            campoDigitacao.addClass("campoDigitacaoErrado");
+            campoDigitacao.removeClass("campoDigitacaoCorreto");
+        }
+    })
 }
 
 $("#btReiniciar").click(btReiniciarJogo);
@@ -60,5 +81,9 @@ function btReiniciarJogo(){
     $("#tempoDigitacao").text(tempoInicial);
 
     comecaAReduzirContador();
+
+    campoDigitacao.removeClass("campoDigitacaoDesabilitado");
+    campoDigitacao.removeClass("campoDigitacaoErrado");
+    campoDigitacao.removeClass("campoDigitacaoCorreto");
 
 }

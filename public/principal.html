@@ -3,30 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
+    <link rel="stylesheet" href="css/estilos.css">
+
 </head>
 <body>
 
-    <h1>Alura Typer</h1>
+    <div class="container">
+        <h1 class="center">Alura Typer</h1>
 
-    <p class="frase">Frase com bastante palavras para testar o contador</p
-        >
-    <ul class="informacoes">
+        <p class="frase center">Frase com bastante palavras para testar o contador</p>
+        <ul class="informacoes center">
 
-        <li><span id="tamanhoDaFrase"></span> palavras</li>
-        <li><span id="tempoDigitacao">5</span> segundos</li>
+            <li>
+                <i class="small material-icons icones">description</i>
+                <span id="tamanhoDaFrase"></span> palavras
+            </li>
+            <li>
+                <i class="small material-icons icones">query_builder</i>
+                <span id="tempoDigitacao">5</span> segundos</li>
 
-    </ul>
+        </ul>
 
-    <textarea class="campoDigitacao" cols="30" rows="8"></textarea>
+        <textarea class="campoDigitacao" cols="30" rows="8"></textarea>
 
-    <button id="btReiniciar">Reiniciar</button>
 
-    <ul>
+        <div class="botoes"> 
+            <a class="btn-floating btn-large waves-effect waves-light red" id="btReiniciar">
+                <i class="material-icons">restore</i>
+            </a>
+        </div>
 
-        <li><span id="contadorCaracteres">0</span> caracteres</li>
-        <li><span id="contadorPalavras">0</span> palavras</li>
+        <ul class="center">
 
-    </ul>
+            <li><span id="contadorCaracteres">0</span> caracteres</li>
+            <li><span id="contadorPalavras">0</span> palavras</li>
+
+        </ul>
+
+    </div>
+
 
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
