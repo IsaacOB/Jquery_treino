@@ -40,11 +40,8 @@ function comecaAReduzirContador(){
             $("#tempoDigitacao").text(tempoRestante);
 
             if(tempoRestante < 1){
-
-                campoDigitacao.attr("disabled", true);
                 clearInterval(tempoID);
-                campoDigitacao.addClass("campoDigitacaoDesabilitado");
-
+                finalizaESalvaDadosDoJogo();
             }
 
         }, 1000);
@@ -80,10 +77,31 @@ function btReiniciarJogo(){
 
     $("#tempoDigitacao").text(tempoInicial);
 
-    comecaAReduzirContador();
-
     campoDigitacao.removeClass("campoDigitacaoDesabilitado");
     campoDigitacao.removeClass("campoDigitacaoErrado");
     campoDigitacao.removeClass("campoDigitacaoCorreto");
+
+}
+
+function insereNovoValorNaTabela(){
+
+    var corpoTabela = $(".placar").find("tbody");
+    var numPalavras = $("#contadorPalavras").text();
+    var usuario = "Eu :3";
+
+    var linha = "<tr>" + 
+                   "<td>" + usuario + "</td>" + 
+                   "<td>" + numPalavras + "</td>" + 
+                "</tr>"
+
+    corpoTabela.prepend(linha);                
+}
+
+
+function finalizaESalvaDadosDoJogo(){
+
+    campoDigitacao.attr("disabled", true);
+    campoDigitacao.addClass("campoDigitacaoDesabilitado");
+    insereNovoValorNaTabela();
 
 }
