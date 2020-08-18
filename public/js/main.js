@@ -18,6 +18,13 @@ function tamanhoFrase(){
 
 }
 
+function atualizaTemporizador(tempo) {
+
+    tempoInicial = tempo;
+    $("#tempoDigitacao").text(tempo);
+    
+}
+
 function contaCaracteresEPalavras(){
     campoDigitacao.on("input", function(){
     var conteudo = campoDigitacao.val();
@@ -52,6 +59,7 @@ function comecaAReduzirContador(){
 function correcaoComUsoDasBordas(){
 
         campoDigitacao.on("input", function(){
+        var frase = $(".frase").text();
         var conteudoDigitado = campoDigitacao.val();
         var comparador = frase.substr(0, conteudoDigitado.length);
 
