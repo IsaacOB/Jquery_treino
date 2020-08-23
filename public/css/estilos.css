@@ -38,6 +38,10 @@
     display: none;
 }
 
+#fraseId{
+    width: 40px;
+}
+
 body{
     overflow: scroll;
 }

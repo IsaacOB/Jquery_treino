@@ -12,8 +12,8 @@ $(document).ready(function(){
 })
 
 function tamanhoFrase(){
-    var frase = $(".frase").text();
-    var numeroDePalavras = frase.split(" ").length;
+    let frase = $(".frase").text();
+    let numeroDePalavras = frase.split(" ").length;
     $("#tamanhoDaFrase").text(numeroDePalavras);
 
 }
@@ -27,22 +27,21 @@ function atualizaTemporizador(tempo) {
 
 function contaCaracteresEPalavras(){
     campoDigitacao.on("input", function(){
-    var conteudo = campoDigitacao.val();
+    let conteudo = campoDigitacao.val();
 
-    var quantidadePalavras = conteudo.split(/\S+/).length -1;
+    let quantidadePalavras = conteudo.split(/\S+/).length -1;
     $("#contadorPalavras").text(quantidadePalavras);
 
-    var quantidadeCaracteres = conteudo.length;
+    let quantidadeCaracteres = conteudo.length;
     $("#contadorCaracteres").text(quantidadeCaracteres);
     });
 }
 
 function comecaAReduzirContador(){
     campoDigitacao.one("focus", function(){
-    var campoDigitacao = $(".campoDigitacao");
 
-    var tempoRestante = $("#tempoDigitacao").text();
-        var tempoID = setInterval(function(){
+    let tempoRestante = $("#tempoDigitacao").text();
+        let tempoID = setInterval(function(){
 
             tempoRestante--;
             $("#tempoDigitacao").text(tempoRestante);
@@ -59,9 +58,9 @@ function comecaAReduzirContador(){
 function correcaoComUsoDasBordas(){
 
         campoDigitacao.on("input", function(){
-        var frase = $(".frase").text();
-        var conteudoDigitado = campoDigitacao.val();
-        var comparador = frase.substr(0, conteudoDigitado.length);
+        let frase = $(".frase").text();
+        let conteudoDigitado = campoDigitacao.val();
+        let comparador = frase.substr(0, conteudoDigitado.length);
 
         if(conteudoDigitado == comparador){
             campoDigitacao.addClass("campoDigitacaoCorreto");
@@ -75,7 +74,7 @@ function correcaoComUsoDasBordas(){
 
 function btReiniciarJogo(){
 
-    var campoDigitacao = $(".campoDigitacao");
+    let campoDigitacao = $(".campoDigitacao");
     campoDigitacao.attr("disabled", false);
     campoDigitacao.val("");
     
