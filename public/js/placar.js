@@ -97,7 +97,7 @@ function atualizaPlacar(){
 
         $(data).each(function(){
             let novaLinha = novaLinhaNoPlacar(this.usuario, this.pontos);
-
+            novaLinha.find(".botaoRemover").click(removeUsuarioDaTabela);
             $("tbody").append(novaLinha);
 
         });
