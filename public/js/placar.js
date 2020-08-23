@@ -95,7 +95,11 @@ function atualizaPlacar(){
 
     $.get(urlPlacar, function(data){
 
-        console.log("Busca feita");
-        console.log(data)
+        $(data).each(function(){
+            let novaLinha = novaLinhaNoPlacar(this.usuario, this.pontos);
+
+            $("tbody").append(novaLinha);
+
+        });
     });
 }

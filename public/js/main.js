@@ -9,6 +9,7 @@ $(document).ready(function(){
     comecaAReduzirContador();
     correcaoComUsoDasBordas();
     btReiniciarJogo();
+    atualizaPlacar();
 })
 
 function tamanhoFrase(){
