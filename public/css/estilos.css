@@ -46,6 +46,14 @@
     float: right;
 }
 
+.selectUsuarios{
+    display: inline-block;
+}
+
+.usuarios{
+    display: block;
+}
+
 body{
     overflow: scroll;
 }
